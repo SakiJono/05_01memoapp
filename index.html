@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/sanitize.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <div id="btn">
+      <img src="img/save.png" alt="" class="btn_img" id="save">
+      <img src="img/clear.png" alt="" class="btn_img" id="clear">
+    </div>
+  </header>
+  <main>
+    <div id="a">
+      <canvas id="canvas"></canvas>
+      <img src="img/吹き出し.png" alt="" id="huki">
+      <textarea name="" id="text_area" cols="26" rows="18"></textarea>
+      <img src="img/かお 2.png" alt="" id="kao">
+      <div id="b">
+        <div id="eye">
+          <img src="img/目1.png" alt="" id="eye1_1">
+          <img src="img/目2.png" alt="" id="eye1_2">
+          <img src="img/目3.png" alt="" id="eye1_3">
+        </div>
+        <div id="nose">
+          <img src="img/鼻1.png" alt="" id="nose1_1">
+          <img src="img/鼻2.png" alt="" id="nose1_2">
+          <img src="img/鼻3.png" alt="" id="nose1_3">
+        </div>
+        <div id="mouth">
+          <img src="img/口1.png" alt="" id="mouth1_1">
+          <img src="img/口2.png" alt="" id="mouth1_2">
+          <img src="img/口3.png" alt="" id="mouth1_3">
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div id="menu">
+      <div class="memu_img">
+        <div id="img0_1">
+          <img src="img/リストめ.jpg" alt="">
+        </div>
+        <ul id="li01">
+          <li><img src="img/目1.png" alt="" id="img1_1"></li>
+          <li><img src="img/目2.png" alt="" id="img1_2"></li>
+          <li><img src="img/目3.png" alt="" id="img1_3"></li>
+        </ul>
+      </div>
+      <div class="memu_img">
+        <div id="img0_2">
+          <img src="img/リストはな.jpg" alt="">
+        </div>
+        <ul id="li02">
+          <li><img src="img/鼻1.png" alt="" id="img2_1"></li>
+          <li><img src="img/鼻2.png" alt="" id="img2_2"></li>
+          <li><img src="img/鼻3.png" alt="" id="img2_3"></li>
+        </ul>
+      </div>
+      <div class="memu_img">
+        <div id="img0_3">
+          <img src="img/リスト口.jpg" alt="">
+        </div>
+        <ul id="li03">
+          <li><img src="img/口1.png" alt="" id="img3_1"></li>
+          <li><img src="img/口2.png" alt="" id="img3_2"></li>
+          <li><img src="img/口3.png" alt="" id="img3_3"></li>
+        </ul>
+      </div>
+      <div class="memu_img">
+        <div id="img0_4">
+          <img src="img/パーツ.jpg" alt="">
+        </div>
+        <ul id="li04">
+          <li><img src="img/かお 2.png" alt="" id="img4_1"></li>
+          <li><img src="img/吹き出し.png" alt="" id="img4_2"></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+
+
+
+    const clickmenu01 = document.getElementById('img0_1');
+    const clickmenu1 = document.getElementById('li01');
+    const clickmenu02 = document.getElementById('img0_2');
+    const clickmenu2 = document.getElementById('li02');
+    const clickmenu03 = document.getElementById('img0_3');
+    const clickmenu3 = document.getElementById('li03');
+    const clickmenu04 = document.getElementById('img0_4');
+    const clickmenu4 = document.getElementById('li04');
+
+    const kao1 = document.getElementById('img4_1');
+    const huki1 = document.getElementById('img4_2');
+    const kao = document.getElementById('kao');
+    const huki = document.getElementById('huki');
+
+    const eye = document.getElementById('eye');
+    const eye1 = document.getElementById('img1_1');
+    const eye2 = document.getElementById('img1_2');
+    const eye3 = document.getElementById('img1_3');
+    const eye1_1 = document.getElementById('eye1_1');
+    const eye1_2 = document.getElementById('eye1_2');
+    const eye1_3 = document.getElementById('eye1_3');
+
+    const nose = document.getElementById('nose');
+    const nose1 = document.getElementById('img2_1');
+    const nose2 = document.getElementById('img2_2');
+    const nose3 = document.getElementById('img2_3');
+    const nose1_1 = document.getElementById('nose1_1');
+    const nose1_2 = document.getElementById('nose1_2');
+    const nose1_3 = document.getElementById('nose1_3');
+
+    const mouth = document.getElementById('mouth');
+    const mouth1 = document.getElementById('img3_1');
+    const mouth2 = document.getElementById('img3_2');
+    const mouth3 = document.getElementById('img3_3');
+    const mouth1_1 = document.getElementById('mouth1_1');
+    const mouth1_2 = document.getElementById('mouth1_2');
+    const mouth1_3 = document.getElementById('mouth1_3');
+
+
+    clickmenu1.style.display = 'none'
+    clickmenu2.style.display = 'none'
+    clickmenu3.style.display = 'none'
+    clickmenu4.style.display = 'none'
+
+
+
+    clickmenu01.onclick = function () {
+      console.log('目表示');
+      if (clickmenu1.style.display == 'none') {
+        clickmenu1.style.display = "";
+      } else if (clickmenu1.style.display == "") {
+        clickmenu1.style.display = 'none'
+      }
+    }
+    clickmenu02.onclick = function () {
+      console.log('鼻表示');
+      if (clickmenu2.style.display == 'none') {
+        clickmenu2.style.display = "";
+      } else if (clickmenu2.style.display == "") {
+        clickmenu2.style.display = 'none'
+      }
+    }
+    clickmenu03.onclick = function () {
+      console.log('口表示');
+      if (clickmenu3.style.display == 'none') {
+        clickmenu3.style.display = "";
+      } else if (clickmenu3.style.display == "") {
+        clickmenu3.style.display = 'none'
+      }
+    }
+    clickmenu04.onclick = function () {
+      console.log('パーツ表示');
+      if (clickmenu4.style.display == 'none') {
+        clickmenu4.style.display = "";
+      } else if (clickmenu4.style.display == "") {
+        clickmenu4.style.display = 'none'
+      }
+    }
+
+    kao1.onclick = function () {
+      console.log('顔追加');
+      kao.style.zIndex = 12;
+
+    }
+    huki1.onclick = function () {
+      console.log('吹き出し追加');
+      huki.style.zIndex = 11;
+    }
+
+    eye1.onclick = function () {
+      console.log('選択')
+      eye1_1.style.zIndex = 13;
+      eye1_2.style.zIndex = 3;
+      eye1_3.style.zIndex = 3;
+
+    }
+    eye2.onclick = function () {
+      console.log('選択')
+      eye1_2.style.zIndex = 13;
+      eye1_1.style.zIndex = 3;
+      eye1_3.style.zIndex = 3;
+    }
+    eye3.onclick = function () {
+      console.log('選択')
+      eye1_3.style.zIndex = 13;
+      eye1_1.style.zIndex = 3;
+      eye1_2.style.zIndex = 3;
+    }
+
+    mouth1.onclick = function () {
+      console.log('選択')
+      mouth1_1.style.zIndex = 13;
+      mouth1_2.style.zIndex = 3;
+      mouth1_3.style.zIndex = 3;
+    }
+    mouth2.onclick = function () {
+      console.log('選択')
+      mouth1_2.style.zIndex = 13;
+      mouth1_1.style.zIndex = 3;
+      mouth1_3.style.zIndex = 3;
+    }
+    mouth3.onclick = function () {
+      console.log('選択')
+      mouth1_3.style.zIndex = 13;
+      mouth1_1.style.zIndex = 3;
+      mouth1_2.style.zIndex = 3;
+    }
+
+    nose1.onclick = function () {
+      console.log('選択')
+      nose1_1.style.zIndex = 13;
+      nose1_2.style.zIndex = 3;
+      nose1_3.style.zIndex = 3;
+    }
+    nose2.onclick = function () {
+      console.log('選択')
+      nose1_2.style.zIndex = 13;
+      nose1_1.style.zIndex = 3;
+      nose1_3.style.zIndex = 3;
+    }
+    nose3.onclick = function () {
+      console.log('選択')
+      nose1_3.style.zIndex = 13;
+      nose1_1.style.zIndex = 3;
+      nose1_2.style.zIndex = 3;
+    }
+
+
+    // 目マウスでのドラッグ＆ドロップ
+
+    eye1_1.onmousedown = function meye(event) {
+
+      let shiftX = event.clientX - eye1_1.getBoundingClientRect().left;
+      let shiftY = event.clientY - eye1_1.getBoundingClientRect().top;
+
+      eye1_1.style.position = 'absolute';
+      eye1_1.style.zIndex = 13;
+      document.body.append(eye1_1);
+
+      moveAt(event.pageX, event.pageY);
+
+      // ボールを（pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        eye1_1.style.left = pageX - shiftX + 'px';
+        eye1_1.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove でボールを移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ボールをドロップする。不要なハンドラを削除する
+      eye1_1.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        eye1_1.onmouseup = null;
+
+        console.log(eye1_1.style.left, eye1_1.style.top, eye1_1.style.zIndex);
+      };
+
+    }
+
+    eye1_1.ondragstart = function () {
+      return false;
+    };
+    // 目マウスでのドラッグ＆ドロップ
+
+    eye1_2.onmousedown = function meye(event) {
+
+      let shiftX = event.clientX - eye1_2.getBoundingClientRect().left;
+      let shiftY = event.clientY - eye1_2.getBoundingClientRect().top;
+
+      eye1_2.style.position = 'absolute';
+      eye1_2.style.zIndex = 13;
+      document.body.append(eye1_2);
+
+      moveAt(event.pageX, event.pageY);
+
+      // （pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        eye1_2.style.left = pageX - shiftX + 'px';
+        eye1_2.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove で移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ドロップする。不要なハンドラを削除する
+      eye1_2.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        eye1_2.onmouseup = null;
+
+        console.log(eye1_2.style.left, eye1_2.style.top);
+      };
+
+    }
+
+    eye1_2.ondragstart = function () {
+      return false;
+    };
+    // 目マウスでのドラッグ＆ドロップ
+
+    eye1_3.onmousedown = function meye(event) {
+
+      let shiftX = event.clientX - eye1_3.getBoundingClientRect().left;
+      let shiftY = event.clientY - eye1_3.getBoundingClientRect().top;
+
+      eye1_3.style.position = 'absolute';
+      eye1_3.style.zIndex = 13;
+      document.body.append(eye1_3);
+
+      moveAt(event.pageX, event.pageY);
+
+      // （pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        eye1_3.style.left = pageX - shiftX + 'px';
+        eye1_3.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove で移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ドロップする。不要なハンドラを削除する
+      eye1_3.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        eye1_3.onmouseup = null;
+
+        console.log(eye1_3.style.left, eye1_3.style.top);
+      };
+
+    }
+
+    eye1_3.ondragstart = function () {
+      return false;
+    };
+
+
+
+
+
+
+    // 口マウスでのドラッグ＆ドロップ
+
+    mouth1_1.onmousedown = function (event) {
+
+      let shiftX = event.clientX - mouth1_1.getBoundingClientRect().left;
+      let shiftY = event.clientY - mouth1_1.getBoundingClientRect().top;
+
+      mouth1_1.style.position = 'absolute';
+      mouth1_1.style.zIndex = 1000;
+      document.body.append(mouth1_1);
+
+      moveAt(event.pageX, event.pageY);
+
+      // （pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        mouth1_1.style.left = pageX - shiftX + 'px';
+        mouth1_1.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove で移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ドロップする。不要なハンドラを削除する
+      mouth1_1.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        mouth1_1.onmouseup = null;
+
+        console.log(mouth1_1.style.left, mouth1_1.style.top);
+      };
+
+    }
+
+    mouth1_1.ondragstart = function () {
+      return false;
+    };
+
+
+    mouth1_2.onmousedown = function (event) {
+
+      let shiftX = event.clientX - mouth1_2.getBoundingClientRect().left;
+      let shiftY = event.clientY - mouth1_2.getBoundingClientRect().top;
+
+      mouth1_2.style.position = 'absolute';
+      mouth1_2.style.zIndex = 1000;
+      document.body.append(mouth1_2);
+
+      moveAt(event.pageX, event.pageY);
+
+      // （pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        mouth1_2.style.left = pageX - shiftX + 'px';
+        mouth1_2.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove で移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ドロップする。不要なハンドラを削除する
+      mouth1_2.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        mouth1_2.onmouseup = null;
+
+        console.log(mouth1_2.style.left, mouth1_2.style.top);
+      };
+
+    }
+
+    mouth1_2.ondragstart = function () {
+      return false;
+    };
+
+    mouth1_3.onmousedown = function (event) {
+
+      let shiftX = event.clientX - mouth1_3.getBoundingClientRect().left;
+      let shiftY = event.clientY - mouth1_3.getBoundingClientRect().top;
+
+      mouth1_3.style.position = 'absolute';
+      mouth1_3.style.zIndex = 1000;
+      document.body.append(mouth1_3);
+
+      moveAt(event.pageX, event.pageY);
+
+      // （pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        mouth1_3.style.left = pageX - shiftX + 'px';
+        mouth1_3.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove で移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ドロップする。不要なハンドラを削除する
+      mouth1_3.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        mouth1_3.onmouseup = null;
+
+        console.log(mouth1_3.style.left, mouth1_3.style.top);
+      };
+
+    }
+
+    mouth1_3.ondragstart = function () {
+      return false;
+    };
+
+
+
+
+
+
+
+    // 鼻マウスでのドラッグ＆ドロップ
+    nose1_1.onmousedown = function (event) {
+
+      let shiftX = event.clientX - nose1_1.getBoundingClientRect().left;
+      let shiftY = event.clientY - nose1_1.getBoundingClientRect().top;
+
+      nose1_1.style.position = 'absolute';
+      nose1_1.style.zIndex = 1000;
+      document.body.append(nose1_1);
+
+      moveAt(event.pageX, event.pageY);
+
+      // ボールを（pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        nose1_1.style.left = pageX - shiftX + 'px';
+        nose1_1.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove でボールを移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ボールをドロップする。不要なハンドラを削除する
+      nose1_1.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        nose1_1.onmouseup = null;
+
+        console.log(nose1_1.style.left, nose1_1.style.top);
+      };
+
+    }
+
+    nose1_1.ondragstart = function () {
+      return false;
+    };
+
+    nose1_2.onmousedown = function (event) {
+
+      let shiftX = event.clientX - nose1_2.getBoundingClientRect().left;
+      let shiftY = event.clientY - nose1_2.getBoundingClientRect().top;
+
+      nose1_2.style.position = 'absolute';
+      nose1_2.style.zIndex = 1000;
+      document.body.append(nose1_2);
+
+      moveAt(event.pageX, event.pageY);
+
+      // ボールを（pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        nose1_2.style.left = pageX - shiftX + 'px';
+        nose1_2.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove でボールを移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ボールをドロップする。不要なハンドラを削除する
+      nose1_2.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        nose1_2.onmouseup = null;
+
+        console.log(nose1_2.style.left, nose1_2.style.top);
+      };
+
+    }
+
+    nose1_2.ondragstart = function () {
+      return false;
+    };
+
+    nose1_3.onmousedown = function (event) {
+
+      let shiftX = event.clientX - nose1_3.getBoundingClientRect().left;
+      let shiftY = event.clientY - nose1_3.getBoundingClientRect().top;
+
+      nose1_3.style.position = 'absolute';
+      nose1_3.style.zIndex = 1000;
+      document.body.append(nose1_3);
+
+      moveAt(event.pageX, event.pageY);
+
+      // ボールを（pageX、pageY）座標の中心に置く
+      function moveAt(pageX, pageY) {
+        nose1_3.style.left = pageX - shiftX + 'px';
+        nose1_3.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      // (3) mousemove でボールを移動する
+      document.addEventListener('mousemove', onMouseMove);
+
+      // (4) ボールをドロップする。不要なハンドラを削除する
+      nose1_3.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        nose1_3.onmouseup = null;
+
+        console.log(nose1_3.style.left, nose1_3.style.top);
+      };
+
+    }
+
+    nose1_3.ondragstart = function () {
+      return false;
+    };
+
+    // $(function () {
+
+
+    //1.Save クリックイベント
+    $('#save').on('click', function () {
+      // const eye1_1x = $('#eye1_1').offset().left;
+      // const eye1_2x = $('#eye1_2').offset().left;
+      // const eye1_3x = $('#eye1_3').offset().left;
+
+      // const eye1_1y = $('#eye1_1').offset().top;
+      // const eye1_2y = $('#eye1_2').offset().top;
+      // const eye1_3y = $('#eye1_3').offset().top;
+
+      // const eye1_1z = $('#eye1_1').zIndex;
+      // const eye1_2z = $('#eye1_2').zIndex;
+      // const eye1_3z = $('#eye1_3').zIndex;
+
+
+      // const nose1_1x = $('#nose1_1').offset().left;
+      // const nose1_2x = $('#nose1_2').offset().left;
+      // const nose1_3x = $('#nose1_3').offset().left;
+
+      // const nose1_1y = $('#nose1_1').offset().top;
+      // const nose1_2y = $('#nose1_2').offset().top;
+      // const nose1_3y = $('#nose1_3').offset().top;
+
+      // const nose1_1z = $('#nose1_1').zIndex;
+      // const nose1_2z = $('#nose1_2').zIndex;
+      // const nose1_3z = $('#nose1_3').zIndex;
+
+
+      // const mouth1_1x = $('#mouth1_1').offset().left;
+      // const mouth1_2x = $('#mouth1_2').offset().left;
+      // const mouth1_3x = $('#mouth1_3').offset().left;
+
+      // const mouth1_1y = $('#mouth1_1').offset().top;
+      // const mouth1_2y = $('#mouth1_2').offset().top;
+      // const mouth1_3y = $('#mouth1_3').offset().top;
+
+      // const mouth1_1z = $('#mouth1_1').clientY;
+      // const mouth1_2z = $('#mouth1_2').clientY;
+      // const mouth1_3z = $('#mouth1_3').clientY;
+
+      // const kaoz = $('#kao').zIndex;
+      // const hukiz = $('#huki').zIndex;
+
+      const text = $('#text_area').val();
+
+      const data = {
+        text: text,
+        // eye1_1x: eye1_1x,
+        // eye1_2x: eye1_2x,
+        // eye1_3x: eye1_3x,
+
+        // eye1_1y: eye1_1y,
+        // eye1_2y: eye1_2y,
+        // eye1_3y: eye1_3y,
+
+        // eye1_1z: eye1_1z,
+        // eye1_2z: eye1_2z,
+        // eye1_3z: eye1_3z,
+
+
+        // nose1_1x: nose1_1x,
+        // nose1_2x: nose1_2x,
+        // nose1_2x: nose1_2x,
+
+        // nose1_1y: nose1_1y,
+        // nose1_2y: nose1_2y,
+        // nose1_3y: nose1_3y,
+
+        // nose1_1z: nose1_1z,
+        // nose1_2z: nose1_2z,
+        // nose1_3z: nose1_3z,
+
+
+        // mouth1_1x: mouth1_1x,
+        // mouth1_2x: mouth1_2x,
+        // mouth1_3x: mouth1_3x,
+
+        // mouth1_1y: mouth1_1y,
+        // mouth1_2y: mouth1_2y,
+        // mouth1_3y: mouth1_3y,
+
+        // mouth1_1z: mouth1_1z,
+        // mouth1_2z: mouth1_2z,
+        // mouth1_3z: mouth1_3z,
+
+        // kaoz: kaoz,
+        // hukiz: hukiz
+      };
+      const jsonData = JSON.stringify(data);
+      localStorage.setItem('memo02', jsonData);
+      console.log(data);
+      console.log(jsonData);
+    });
+
+
+
+    //2.clear クリックイベント
+    $('#clear').on('click', function () {
+      localStorage.removeItem('memo02');
+      $('#text_area').val('');
+
+    });
+
+
+    // //3.ページ読み込み：保存データ取得表示
+    if (localStorage.getItem('memo02')) {
+      const jsonData = localStorage.getItem('memo02');
+      const data = JSON.parse(jsonData);
+      console.log(data);
+
+
+      //まだ
+      $('#text_area').val(data.text);
+      // $('#eye1_1').offset.left(data.eye1_1x);
+      // $('#eye1_2').offset.left(data.eye1_2x);
+      // $('#eye1_3').offset.left(data.eye1_3x);
+
+      // $('#eye1_1').offset.top(data.eye1_1y)
+      // $('#eye1_2').offset.top(data.eye1_2y);
+      // $('#eye1_3').offset.top(data.eye1_3y);
+
+      // $('#eye1_1').zIndex(data.eye1_1z);
+      // $('#eye1_2').zIndex(data.eye1_1z);
+      // $('#eye1_3').zIndex(data.eye1_3z);
+
+
+      // $('#nose1_1').offset.left(data.nose1_1x);
+      // $('#nose1_2').offset.left(data.nose1_2x);
+      // $('#nose1_3').offset.left(data.nose1_3x);
+
+      // $('#nose1_1').offset.top(data.nose1_1y);
+      // $('#nose1_2').offset.top(data.nose1_2y);
+      // $('#nose1_3').offset.top(data.nose1_3y);
+
+      // $('#nose1_1').zIndex(data.nose1_1z);
+      // $('#nose1_2').zIndex(data.nose1_2z);
+      // $('#nose1_3').zIndex(data.nose1_3z);
+
+
+      // $('#mouth1_1').offset.left(data.mouth1_1x);
+      // $('#mouth1_2').offset.left(data.mouth1_2x);
+      // $('#mouth1_3').offset.left(data.mouth1_3x);
+
+      // $('#mouth1_1').offset.top(data.mouth1_1y);
+      // $('#mouth1_2').offset.top(data.mouth1_2y);
+      // $('#mouth1_3').offset.top(data.mouth1_3y);
+
+      // $('#mouth1_1').clientY(data.mouth1_1z);
+      // $('#mouth1_2').clientY(data.mouth1_2z);
+      // $('#mouth1_3').clientY(data.mouth1_3z);
+
+      // $('#kao').zIndex(data.kaoz);
+      // $('#huki').zIndex(data.hukiz);
+
+    }
+    // });
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
