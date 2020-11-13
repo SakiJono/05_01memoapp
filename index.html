@@ -11,12 +11,6 @@
 </head>
 
 <body>
-  <header>
-    <div id="btn">
-      <img src="img/save.png" alt="" class="btn_img" id="save">
-      <img src="img/clear.png" alt="" class="btn_img" id="clear">
-    </div>
-  </header>
   <main>
     <div id="a">
       <canvas id="canvas"></canvas>
@@ -42,6 +36,8 @@
       </div>
 
     </div>
+
+
 
 
 
@@ -87,6 +83,12 @@
       </div>
     </div>
   </main>
+
+  <div id="btn">
+    <img src="img/save.png" alt="" class="btn_img" id="save">
+    <img src="img/clear.png" alt="" class="btn_img" id="clear">
+  </div>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
@@ -608,94 +610,93 @@
 
     //1.Save クリックイベント
     $('#save').on('click', function () {
-      // const eye1_1x = $('#eye1_1').offset().left;
-      // const eye1_2x = $('#eye1_2').offset().left;
-      // const eye1_3x = $('#eye1_3').offset().left;
+      const eye1_1x = document.getElementById('eye1_1').style.left;
+      const eye1_2x = document.getElementById('eye1_2').style.left;
+      const eye1_3x = document.getElementById('eye1_3').style.left;
 
-      // const eye1_1y = $('#eye1_1').offset().top;
-      // const eye1_2y = $('#eye1_2').offset().top;
-      // const eye1_3y = $('#eye1_3').offset().top;
+      const eye1_1y = document.getElementById('eye1_1').style.top;
+      const eye1_2y = document.getElementById('eye1_2').style.top;
+      const eye1_3y = document.getElementById('eye1_3').style.top;
 
-      // const eye1_1z = $('#eye1_1').zIndex;
-      // const eye1_2z = $('#eye1_2').zIndex;
-      // const eye1_3z = $('#eye1_3').zIndex;
-
-
-      // const nose1_1x = $('#nose1_1').offset().left;
-      // const nose1_2x = $('#nose1_2').offset().left;
-      // const nose1_3x = $('#nose1_3').offset().left;
-
-      // const nose1_1y = $('#nose1_1').offset().top;
-      // const nose1_2y = $('#nose1_2').offset().top;
-      // const nose1_3y = $('#nose1_3').offset().top;
-
-      // const nose1_1z = $('#nose1_1').zIndex;
-      // const nose1_2z = $('#nose1_2').zIndex;
-      // const nose1_3z = $('#nose1_3').zIndex;
+      const eye1_1z = document.getElementById('eye1_1').style.zIndex;
+      const eye1_2z = document.getElementById('eye1_2').style.zIndex;
+      const eye1_3z = document.getElementById('eye1_3').style.zIndex;
 
 
-      // const mouth1_1x = $('#mouth1_1').offset().left;
-      // const mouth1_2x = $('#mouth1_2').offset().left;
-      // const mouth1_3x = $('#mouth1_3').offset().left;
+      const nose1_1x = document.getElementById('nose1_1').style.left;
+      const nose1_2x = document.getElementById('nose1_2').style.left;
+      const nose1_3x = document.getElementById('nose1_3').style.left;
 
-      // const mouth1_1y = $('#mouth1_1').offset().top;
-      // const mouth1_2y = $('#mouth1_2').offset().top;
-      // const mouth1_3y = $('#mouth1_3').offset().top;
+      const nose1_1y = document.getElementById('nose1_1').style.top;
+      const nose1_2y = document.getElementById('nose1_2').style.top;
+      const nose1_3y = document.getElementById('nose1_3').style.top;
 
-      // const mouth1_1z = $('#mouth1_1').clientY;
-      // const mouth1_2z = $('#mouth1_2').clientY;
-      // const mouth1_3z = $('#mouth1_3').clientY;
+      const nose1_1z = document.getElementById('nose1_1').style.zIndex;
+      const nose1_2z = document.getElementById('nose1_2').style.zIndex;
+      const nose1_3z = document.getElementById('nose1_3').style.zIndex;
 
-      // const kaoz = $('#kao').zIndex;
-      // const hukiz = $('#huki').zIndex;
 
+      const mouth1_1x = document.getElementById('mouth1_1').style.left;
+      const mouth1_2x = document.getElementById('mouth1_2').style.left;
+      const mouth1_3x = document.getElementById('mouth1_3').style.left;
+
+      const mouth1_1y = document.getElementById('mouth1_1').style.top;
+      const mouth1_2y = document.getElementById('mouth1_2').style.top;
+      const mouth1_3y = document.getElementById('mouth1_3').style.top;
+
+      const mouth1_1z = document.getElementById('mouth1_1').style.zIndex;
+      const mouth1_2z = document.getElementById('mouth1_2').style.zIndex;
+      const mouth1_3z = document.getElementById('mouth1_3').style.zIndex;
+
+      const kaoz = document.getElementById('kao').style.zIndex;
+      const hukiz = document.getElementById('huki').style.zIndex;
       const text = $('#text_area').val();
 
       const data = {
         text: text,
-        // eye1_1x: eye1_1x,
-        // eye1_2x: eye1_2x,
-        // eye1_3x: eye1_3x,
+        eye1_1x: eye1_1x,
+        eye1_2x: eye1_2x,
+        eye1_3x: eye1_3x,
 
-        // eye1_1y: eye1_1y,
-        // eye1_2y: eye1_2y,
-        // eye1_3y: eye1_3y,
+        eye1_1y: eye1_1y,
+        eye1_2y: eye1_2y,
+        eye1_3y: eye1_3y,
 
-        // eye1_1z: eye1_1z,
-        // eye1_2z: eye1_2z,
-        // eye1_3z: eye1_3z,
-
-
-        // nose1_1x: nose1_1x,
-        // nose1_2x: nose1_2x,
-        // nose1_2x: nose1_2x,
-
-        // nose1_1y: nose1_1y,
-        // nose1_2y: nose1_2y,
-        // nose1_3y: nose1_3y,
-
-        // nose1_1z: nose1_1z,
-        // nose1_2z: nose1_2z,
-        // nose1_3z: nose1_3z,
+        eye1_1z: eye1_1z,
+        eye1_2z: eye1_2z,
+        eye1_3z: eye1_3z,
 
 
-        // mouth1_1x: mouth1_1x,
-        // mouth1_2x: mouth1_2x,
-        // mouth1_3x: mouth1_3x,
+        nose1_1x: nose1_1x,
+        nose1_2x: nose1_2x,
+        nose1_3x: nose1_3x,
 
-        // mouth1_1y: mouth1_1y,
-        // mouth1_2y: mouth1_2y,
-        // mouth1_3y: mouth1_3y,
+        nose1_1y: nose1_1y,
+        nose1_2y: nose1_2y,
+        nose1_3y: nose1_3y,
 
-        // mouth1_1z: mouth1_1z,
-        // mouth1_2z: mouth1_2z,
-        // mouth1_3z: mouth1_3z,
+        nose1_1z: nose1_1z,
+        nose1_2z: nose1_2z,
+        nose1_3z: nose1_3z,
 
-        // kaoz: kaoz,
-        // hukiz: hukiz
+
+        mouth1_1x: mouth1_1x,
+        mouth1_2x: mouth1_2x,
+        mouth1_3x: mouth1_3x,
+
+        mouth1_1y: mouth1_1y,
+        mouth1_2y: mouth1_2y,
+        mouth1_3y: mouth1_3y,
+
+        mouth1_1z: mouth1_1z,
+        mouth1_2z: mouth1_2z,
+        mouth1_3z: mouth1_3z,
+
+        kaoz: kaoz,
+        hukiz: hukiz
       };
       const jsonData = JSON.stringify(data);
-      localStorage.setItem('memo02', jsonData);
+      localStorage.setItem('TM02', jsonData);
       console.log(data);
       console.log(jsonData);
     });
@@ -704,61 +705,85 @@
 
     //2.clear クリックイベント
     $('#clear').on('click', function () {
-      localStorage.removeItem('memo02');
+      localStorage.removeItem('TM02');
       $('#text_area').val('');
+
+      document.getElementById('eye1_1').style.zIndex = 0;
+      document.getElementById('eye1_2').style.zIndex = 0;
+      document.getElementById('eye1_3').style.zIndex = 0;
+
+      document.getElementById('nose1_1').style.zIndex = 0;
+      document.getElementById('nose1_2').style.zIndex = 0;
+      document.getElementById('nose1_3').style.zIndex = 0;
+
+      document.getElementById('mouth1_1').style.zIndex = 0;
+      document.getElementById('mouth1_2').style.zIndex = 0;
+      document.getElementById('mouth1_3').style.zIndex = 0;
+
+      document.getElementById('kao').style.zIndex = 0;
+      document.getElementById('huki').style.zIndex = 0;
+
 
     });
 
 
+
+
+
+
+
+
     // //3.ページ読み込み：保存データ取得表示
-    if (localStorage.getItem('memo02')) {
-      const jsonData = localStorage.getItem('memo02');
+    if (localStorage.getItem('TM02')) {
+      const jsonData = localStorage.getItem('TM02');
       const data = JSON.parse(jsonData);
       console.log(data);
 
 
       //まだ
       $('#text_area').val(data.text);
-      // $('#eye1_1').offset.left(data.eye1_1x);
-      // $('#eye1_2').offset.left(data.eye1_2x);
-      // $('#eye1_3').offset.left(data.eye1_3x);
 
-      // $('#eye1_1').offset.top(data.eye1_1y)
-      // $('#eye1_2').offset.top(data.eye1_2y);
-      // $('#eye1_3').offset.top(data.eye1_3y);
+      document.getElementById('eye1_1').style.left = data.eye1_1x;
+      document.getElementById('eye1_2').style.left = data.eye1_2x;
+      document.getElementById('eye1_3').style.left = data.eye1_3x;
 
-      // $('#eye1_1').zIndex(data.eye1_1z);
-      // $('#eye1_2').zIndex(data.eye1_1z);
-      // $('#eye1_3').zIndex(data.eye1_3z);
+      document.getElementById('eye1_1').style.top = data.eye1_1y;
+      document.getElementById('eye1_2').style.top = data.eye1_2y;
+      document.getElementById('eye1_3').style.top = data.eye1_3y;
 
-
-      // $('#nose1_1').offset.left(data.nose1_1x);
-      // $('#nose1_2').offset.left(data.nose1_2x);
-      // $('#nose1_3').offset.left(data.nose1_3x);
-
-      // $('#nose1_1').offset.top(data.nose1_1y);
-      // $('#nose1_2').offset.top(data.nose1_2y);
-      // $('#nose1_3').offset.top(data.nose1_3y);
-
-      // $('#nose1_1').zIndex(data.nose1_1z);
-      // $('#nose1_2').zIndex(data.nose1_2z);
-      // $('#nose1_3').zIndex(data.nose1_3z);
+      document.getElementById('eye1_1').style.zIndex = data.eye1_1z
+      document.getElementById('eye1_2').style.zIndex = data.eye1_2z
+      document.getElementById('eye1_3').style.zIndex = data.eye1_3z
 
 
-      // $('#mouth1_1').offset.left(data.mouth1_1x);
-      // $('#mouth1_2').offset.left(data.mouth1_2x);
-      // $('#mouth1_3').offset.left(data.mouth1_3x);
+      document.getElementById('nose1_1').style.left = data.nose1_1x
+      document.getElementById('nose1_2').style.left = data.nose1_2x
+      document.getElementById('nose1_3').style.left = data.nose1_3x
 
-      // $('#mouth1_1').offset.top(data.mouth1_1y);
-      // $('#mouth1_2').offset.top(data.mouth1_2y);
-      // $('#mouth1_3').offset.top(data.mouth1_3y);
+      document.getElementById('nose1_1').style.top = data.nose1_1y
+      document.getElementById('nose1_2').style.top = data.nose1_2y
+      document.getElementById('nose1_3').style.top = data.nose1_3y
 
-      // $('#mouth1_1').clientY(data.mouth1_1z);
-      // $('#mouth1_2').clientY(data.mouth1_2z);
-      // $('#mouth1_3').clientY(data.mouth1_3z);
+      document.getElementById('nose1_1').style.zIndex = data.nose1_1z
+      document.getElementById('nose1_2').style.zIndex = data.nose1_2z
+      document.getElementById('nose1_3').style.zIndex = data.nose1_3z
 
-      // $('#kao').zIndex(data.kaoz);
-      // $('#huki').zIndex(data.hukiz);
+
+      document.getElementById('mouth1_1').style.left = data.mouth1_1x
+      document.getElementById('mouth1_2').style.left = data.mouth1_2x
+      document.getElementById('mouth1_3').style.left = data.mouth1_3x
+
+      document.getElementById('mouth1_1').style.top = data.mouth1_1y
+      document.getElementById('mouth1_2').style.top = data.mouth1_2y
+      document.getElementById('mouth1_3').style.top = data.mouth1_3y
+
+      document.getElementById('mouth1_1').style.zIndex = data.mouth1_1z
+      document.getElementById('mouth1_2').style.zIndex = data.mouth1_2z
+      document.getElementById('mouth1_3').style.zIndex = data.mouth1_3z
+
+      document.getElementById('kao').style.zIndex = data.kaoz
+      document.getElementById('huki').style.zIndex = data.hukiz
+
 
     }
     // });
